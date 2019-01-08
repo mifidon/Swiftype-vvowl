@@ -11,7 +11,7 @@ http://35.184.202.150:8080/
 https://app.swiftype.com/settings/account
 
 
-![API-Key](https://user-images.githubusercontent.com/19534956/50832114-7f42bb00-134d-11e9-9914-abf26a21f4b8.png)
+![API-Key](https://user-images.githubusercontent.com/19534956/50832210-ccbf2800-134d-11e9-87c2-757e6a27750d.jpg)
 
 
 
