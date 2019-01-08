@@ -5,6 +5,7 @@
 ### 1.1 Vorraussetzungen
 
 * [Node.js und Node Package Manager](https://www.npmjs.com/get-npm)
+* [Die Versionsverwaltung Git](https://git-scm.com/downloads)
 
 ### 1.2 Herunterladen und Installation
 
