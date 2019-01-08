@@ -1,5 +1,12 @@
 # Swiftype-vvowl
 
+Webseite die mit der Swiftype-API die Bearbeitung von Suchergebnisse der Service-Suche ermöglicht.
+
+
+## Live-Demo
+
+http://35.184.202.150:8080/
+
 ## 1. Installation
 
 ### 1.1 Vorraussetzungen
@@ -40,9 +47,8 @@ $ npm run server
 
 Danach ist die Anwendung verfügbar unter localhost:8080
 
-## 3. Live-Demo
 
-http://35.184.202.150:8080/
+
 
 
 
