@@ -42,5 +42,7 @@ Danach ist die Anwendung verfügbar unter localhost:8080
 
 ## 3. Live-Demo
 
+http://35.184.202.150:8080/
+
 
 
