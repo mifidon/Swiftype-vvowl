@@ -1,6 +1,6 @@
 # Swiftype-vvowl
 
-Webseite die mit der Swiftype-API die Bearbeitung von Suchergebnisse der Service-Suche ermöglicht.
+Webseite die mit einem Engine-API-Key die Bearbeitung von Suchergebnisse der Service-Suche ermöglicht.
 
 
 ## Live-Demo
