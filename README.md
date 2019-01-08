@@ -25,7 +25,7 @@ Das request package muss zusätzlich installiert werden
 ```sh
 $ npm install request
 ```
-und das express package muss ebenfalls zusätlich installiert werden.
+und das express package muss ebenfalls zusätzlich installiert werden.
 ```sh
 $ npm install express
 ```
