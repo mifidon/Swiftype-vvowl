@@ -13,13 +13,12 @@ app.listen(8080, () => {
   console.log('listening on 8080');
 });
 
-
 // serve the homepage
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
-//
+//get all documents with limit of 1000
 app.get('/getDocuments/', (req, res) => {
 
   var options = { method: 'GET',
@@ -32,12 +31,10 @@ app.get('/getDocuments/', (req, res) => {
   request(options, function (error, response, body) {
     if (error) throw new Error(error);
     res.send(response)
-      //console.log(response.body)
-
     });
 
 });
-//
+//delete document with specific external_id
 app.get('/deleteDocument/', (req, res) => {
   var options = { method: 'DELETE',
     url: 'https://api.swiftype.com/api/v1/engines/service-suche/document_types/services/documents/'+req.query.id,
@@ -53,7 +50,7 @@ request(options, function (error, response, body) {
 
 });
 
-//
+//create or update document with specific external_id
 app.get('/sendDocument/', (req, res) => {
   var options = { method: 'POST',
   url: 'https://api.swiftype.com/api/v1/engines/service-suche/document_types/services/documents/create_or_update.json',
