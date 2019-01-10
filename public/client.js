@@ -2,7 +2,7 @@ const button = document.getElementById('SubmitBtn');
 
 const editable = false;
 
-
+//Function for building request parameters
 function buildUrl(url, parameters) {
     let qs = "";
     for (const key in parameters) {
@@ -20,15 +20,15 @@ function buildUrl(url, parameters) {
     return url;
 }
 
+//Button(Submit) get all documents
 button.addEventListener('click', function(e) {
   var apikey = document.getElementsByName('API-Key')[0].value;
   getDocuments(apikey)
 });
 
+//function delete document
 function deleteDocument(id){
-  //TODO: creat check api key function
   var apikey = document.getElementsByName('API-Key')[0].value;
-
   fetch(buildUrl("/deleteDocument/", {
         apikey: apikey,
         id: id
@@ -36,14 +36,11 @@ function deleteDocument(id){
       )
       .then(function (response) {
         if(response.ok) return response.json();
-        console.log(response);
         throw new Error('Request failed.');
   })
     .then(function(data) {
-      console.log(data);
   })
   .catch(function(error) {
-    console.log(error);
   });
 }
 
@@ -65,7 +62,6 @@ function sendDocument(id, title, name, section, url){
         throw new Error('Request failed.');
   })
     .then(function(data) {
-      console.log(data)
   })
   .catch(function(error) {
   });
@@ -89,7 +85,7 @@ function getDocuments(apikey){
 
     if (JSONservices == [] ){
       alert("no results");
-      $('#DynamicTable').SetEditable({ $addButton: $('#addNewRow'), onEdit: function() {console.log("edited")}, });
+      $('#DynamicTable').SetEditable();
     }
     else if (JSONservices.error == "You need to sign in or sign up before continuing.") {
       alert("You need to enter your authentication token before continuing.");
@@ -109,11 +105,13 @@ function getDocuments(apikey){
 }
 
 function generateDynamicTable(JSONservices){
+    //sorting services by external_id
+   JSONservices.sort(function(obj1, obj2) {
+    return obj1.external_id - obj2.external_id;
+});
 
 		var noOfServices = Object.keys(JSONservices).length;
-
 			// retrieve column header ('external_id', 'engine_id', 'document_type_id', 'id', 'updated_at', ...)
-
 			var col = []; // define an empty array
 			for (var i = 0; i < noOfServices; i++) {
 				for (var key in JSONservices[i]) {
@@ -130,13 +128,22 @@ function generateDynamicTable(JSONservices){
 
 					var bRow = document.createElement("tr"); // CREATE ROW FOR EACH RECORD .
 
-					for (var j = 0; j < col.length; j++) {
-            if(!(col[j].match(/^(engine_id|document_type_id|updated_at|_id|id)$/))){
-						var td = document.createElement("td");
-						td.innerHTML = JSONservices[i][col[j]];
-						bRow.appendChild(td);
-              }
-					}
+          var td = document.createElement("td");
+          td.innerHTML = JSONservices[i].external_id;
+          bRow.appendChild(td);
+          var td = document.createElement("td");
+          td.innerHTML = JSONservices[i].title;
+          bRow.appendChild(td);
+          var td = document.createElement("td");
+          td.innerHTML = JSONservices[i].name;
+          bRow.appendChild(td);
+          var td = document.createElement("td");
+          td.innerHTML = JSONservices[i].section;
+          bRow.appendChild(td);
+          var td = document.createElement("td");
+          td.innerHTML = JSONservices[i].url;
+          bRow.appendChild(td);
+
 					tBody.appendChild(bRow)
 
 			}
@@ -149,6 +156,5 @@ function generateDynamicTable(JSONservices){
       }
 
     $('#DynamicTable').SetEditable();
-
 
   }
