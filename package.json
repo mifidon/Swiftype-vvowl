@@ -1,0 +1,24 @@
+{
+  "name": "swiftype-vvowl",
+  "version": "1.0.0",
+  "description": "Webseite die mit einem authentication token (API-Key) die Bearbeitung von Suchergebnisse ermöglicht.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mifidon/Swiftype-vvowl.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mifidon/Swiftype-vvowl/issues"
+  },
+  "homepage": "https://github.com/mifidon/Swiftype-vvowl#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "request": "^2.88.0"
+  }
+}
