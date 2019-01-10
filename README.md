@@ -36,14 +36,6 @@ Dann können die npm Module heruntergeladen und installiert werden:
 ```sh
 $ npm install
 ```
-Das request package muss zusätzlich installiert werden
-```sh
-$ npm install request
-```
-und das express package muss ebenfalls zusätzlich installiert werden.
-```sh
-$ npm install express
-```
 
 ### 2.3 Server ausführen
 
