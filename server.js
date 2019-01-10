@@ -24,7 +24,8 @@ app.get('/getDocuments/', (req, res) => {
 
   var options = { method: 'GET',
     url: 'https://api.swiftype.com/api/v1/engines/service-suche/document_types/services/documents.json',
-    qs: { auth_token: req.query.apikey },
+    qs: { auth_token: req.query.apikey,
+	  per_page: 1000 },
     headers:
      {'cache-control': 'no-cache' } };
 
