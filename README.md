@@ -1,6 +1,6 @@
 # Swiftype-vvowl
 
-Webseite die mit einem authentication token (API-Key) die Bearbeitung von Suchergebnisse ermöglicht.
+Webseite die mit einem authentication token (API-Key) die Bearbeitung von Suchergebnissen ermöglicht.
 
 ## 1. Live-Demo
 
