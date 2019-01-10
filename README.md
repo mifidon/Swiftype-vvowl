@@ -42,7 +42,7 @@ $ npm install
 Die Node-Anwendung bauen und einen Server starten
 
 ```sh
-$ npm run server
+$ npm start
 ```
 
 Danach ist die Anwendung verfügbar unter localhost:8080
