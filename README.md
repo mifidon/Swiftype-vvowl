@@ -2,9 +2,7 @@
 
 Webseite die mit einem authentication token (API-Key) die Bearbeitung von Suchergebnissen ermöglicht.
 
-## 1. Live-Demo
-
-http://35.184.202.150:8080/
+## 1. Einleitung
 
 ### 1.1 Wo finde ich meinen authentication token bzw. API-Key?
 
