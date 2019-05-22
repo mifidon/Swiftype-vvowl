@@ -1,4 +1,5 @@
 const button = document.getElementById('SubmitBtn');
+const loader = document.getElementById('loader');
 
 const editable = false;
 
@@ -22,10 +23,18 @@ function buildUrl(url, parameters) {
 
 //Button(Submit) get all documents
 button.addEventListener('click', function(e) {
-  var apikey = document.getElementsByName('API-Key')[0].value;
-  getDocuments(apikey)
+  refreshTable();
 });
 
+//function fresh table
+function refreshTable(){
+var old_tBody = document.getElementById("DynamicTable_tbody");
+old_tBody.innerHTML = "";
+var apikey = document.getElementsByName('API-Key')[0].value;
+loader.style.display = 'block';
+getDocuments(apikey)
+
+}
 //function delete document
 function deleteDocument(id){
   var apikey = document.getElementsByName('API-Key')[0].value;
@@ -35,7 +44,10 @@ function deleteDocument(id){
     }), {method: 'GET'}
       )
       .then(function (response) {
-        if(response.ok) return response.json();
+        if(response.ok){
+          refreshTable();
+          return response.json();
+        }
         throw new Error('Request failed.');
   })
     .then(function(data) {
@@ -44,6 +56,7 @@ function deleteDocument(id){
   });
 }
 
+//fucntion send document
 function sendDocument(id, title, name, section, url){
   var apikey = document.getElementsByName('API-Key')[0].value;
   fetch(buildUrl("/sendDocument/", {
@@ -57,11 +70,16 @@ function sendDocument(id, title, name, section, url){
       )
       .then(function (response) {
         if(response.ok){
+          alert("document has been saved");
+          refreshTable();
           return response.json();
         }
         throw new Error('Request failed.');
   })
     .then(function(data) {
+      var JSONservices = JSON.parse(data.body);
+      alert("document has been send");
+    console.log(JSONservices);
   })
   .catch(function(error) {
   });
@@ -75,6 +93,7 @@ function getDocuments(apikey){
       )
       .then(function (response) {
         if(response.ok){
+          loader.style.display = 'none';
           return response.json();
         }
         throw new Error('Request failed.');

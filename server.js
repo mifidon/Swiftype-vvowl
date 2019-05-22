@@ -40,12 +40,12 @@ app.get('/deleteDocument/', (req, res) => {
     url: 'https://api.swiftype.com/api/v1/engines/service-suche/document_types/services/documents/'+req.query.id,
     qs: { auth_token: req.query.apikey },
     headers:
-     { 'cache-control': 'no-cache' } };
+     { 'cache-control': 'no-cache',
+       'Accept': 'application/json'  } };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
   res.send(response)
-    console.log(response.body)
 });
 
 });
@@ -78,7 +78,8 @@ app.get('/sendDocument/', (req, res) => {
 
   request(options, function (error, response, body) {
   if (error) throw new Error(error);
-
+  res.send(response)
+  // TODO: entfernen
   console.log(body);
   });
 
