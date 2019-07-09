@@ -73,7 +73,10 @@ app.get('/sendDocument/', (req, res) => {
              type: 'string' },
            { name: 'section',
              value: req.query.section,
-             type: 'string' } ] } },
+             type: 'string' } ,
+             { name: 'alexa_response',
+               value: req.query.alexa_response,
+               type: 'string' }] } },
   json: true };
 
   request(options, function (error, response, body) {
