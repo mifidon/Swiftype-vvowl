@@ -57,7 +57,7 @@ function deleteDocument(id){
 }
 
 //fucntion send document
-function sendDocument(id, title, name, section, url){
+function sendDocument(id, title, name, section, url, alexa_response){
   var apikey = document.getElementsByName('API-Key')[0].value;
   fetch(buildUrl("/sendDocument/", {
         apikey: apikey,
@@ -65,7 +65,8 @@ function sendDocument(id, title, name, section, url){
         title: title,
         name: name,
         section: section,
-        url: url
+        url: url,
+        alexa_response: alexa_response
     }), {method: 'GET'}
       )
       .then(function (response) {
@@ -161,6 +162,9 @@ function generateDynamicTable(JSONservices){
           bRow.appendChild(td);
           var td = document.createElement("td");
           td.innerHTML = JSONservices[i].url;
+          bRow.appendChild(td);
+          var td = document.createElement("td");
+          td.innerHTML = JSONservices[i].alexa_response;
           bRow.appendChild(td);
 
 					tBody.appendChild(bRow)
